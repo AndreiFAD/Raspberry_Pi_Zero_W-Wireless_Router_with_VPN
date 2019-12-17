@@ -25,10 +25,10 @@ $ sudo apt–get install hostapd dnsmasq –y<br>
 
 $ sudo nano /etc/dhcpcd.conf<br>
 Copy at the end of the file:<br>
-interface wlan1<br>
-static ip_address=192.168.111.254/24<br>
-nohook wpa_supplicant<br>
-denyinterfaces wlan1<br>
+`interface wlan1`<br>
+`static ip_address=192.168.111.254/24`<br>
+`nohook wpa_supplicant`<br>
+`denyinterfaces wlan1`<br>
 
 ### 4. IP range for wlan1:
 
@@ -39,8 +39,8 @@ Create a new file:<br>
 $ sudo nano /etc/dnsmasq.conf
 
 Copy this to new file:<br>
-interface=wlan1<br>
-dhcp–range=192.168.111.1,192.168.111.20,255.255.255.0,24h<br>
+`interface=wlan1`<br>
+`dhcp–range=192.168.111.1,192.168.111.20,255.255.255.0,24h`<br>
 
 ## Configuring a Wireless Access Point
 
@@ -48,24 +48,24 @@ dhcp–range=192.168.111.1,192.168.111.20,255.255.255.0,24h<br>
 
 $ sudo nano /etc/hostapd/hostapd.conf<br>
 Copy this to the file:<br>
-interface=wlan1<br>
-hw_mode=g<br>
-channel=1<br>
-wmm_enabled=0<br>
-macaddr_acl=0<br>
-auth_algs=1<br>
-ignore_broadcast_ssid=0<br>
-wpa=2<br>
-wpa_key_mgmt=WPA-PSK<br>
-wpa_pairwise=TKIP<br>
-rsn_pairwise=CCMP<br>
-ssid=PrivateVpn<br>
-wpa_passphrase=12345678910<br>
-ieee80211n=1<br>
+`interface=wlan1`<br>
+`hw_mode=g`<br>
+`channel=1`<br>
+`wmm_enabled=0`<br>
+`macaddr_acl=0`<br>
+`auth_algs=1`<br>
+`ignore_broadcast_ssid=0`<br>
+`wpa=2`<br>
+`wpa_key_mgmt=WPA-PSK`<br>
+`wpa_pairwise=TKIP`<br>
+`rsn_pairwise=CCMP`<br>
+`ssid=PrivateVpn`<br>
+`wpa_passphrase=12345678910`<br>
+`ieee80211n=1`<br>
 
 $ sudo nano /etc/default/hostapd<br>
 change this line:<br>
-DAEMON_CONF=“” to DAEMON_CONF=“/etc/hostapd/hostapd.conf”<br>
+`DAEMON_CONF=“”` to `DAEMON_CONF=“/etc/hostapd/hostapd.conf”`<br>
 
 Enable and start hostapd:<br>
 $ sudo systemctl unmask hostapd.service<br>
@@ -76,7 +76,7 @@ $ sudo systemctl start hostapd.service<br>
 
 $ sudo nano /etc/sysctl.conf<br>
 Uncomment this line:<br>
-#net.ipv4.ip_forward=1<br>
+`#net.ipv4.ip_forward=1`<br>
 
 $ sudo iptables –t nat –A POSTROUTING –o wlan0 –j MASQUERADE<br>
 $ sudo iptables –A FORWARD –m conntrack —ctstate RELATED,ESTABLISHED –j ACCEPT<br>
@@ -85,27 +85,27 @@ $ sudo sh –c “iptables-save > /etc/iptables.ipv4.nat”<br>
 $ sudo nano /etc/rc.local<br>
 
 Add this line above “exit 0”:<br>
-iptables–restore < /etc/iptables.ipv4.nat<br>
+`iptables–restore < /etc/iptables.ipv4.nat`<br>
 
 ### 7. Set wifi network for wlan0:
 
 $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 Copy this to the file:<br>
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>
-update_config=1<br>
-country=HU #set your country <br>
-network={<br>
-        ssid=”home_wifi”<br>
-        psk=”passwd”<br>
-        id_str=”home”<br>
-}<br>
-network={<br>
-        ssid=”work_wifi”<br>
-        scan_ssid=1  #if SSID is hidden<br>
-        psk=”passwd”<br>
-        id_str=”work”<br>
-}<br>
+`ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev`<br>
+`update_config=1`<br>
+`country=HU #set your country `<br>
+`network={`<br>
+`        ssid=”home_wifi”`<br>
+`        psk=”passwd”`<br>
+`        id_str=”home”`<br>
+`}`<br>
+`network={`<br>
+`        ssid=”work_wifi”`<br>
+`        scan_ssid=1  #if SSID is hidden`<br>
+`        psk=”passwd”`<br>
+`        id_str=”work”`<br>
+`}`<br>
 
 ## Configuring a VPN Surfshark
 
@@ -149,7 +149,7 @@ $ sudo openvpn /etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn<br>
 
 $ sudo nano /etc/sysctl.conf<br>
 Uncomment this line:<br>
-#net.ipv4.ip_forward=1<br>
+`#net.ipv4.ip_forward=1`<br>
 
 $ sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE<br>
 $ sudo iptables -A FORWARD -i wlan1 -o tun0 -j ACCEPT<br>
@@ -161,8 +161,8 @@ Create file for authentication:<br>
 $ sudo nano /etc/openvpn/auth.txt
 
 Add username and password:<br>
-useassdasdasd<br>
-passsdsaddsas
+`useassdasdasd`<br>
+`passsdsaddsas`
 
 Run OpenVPN and connect example to USA:<br>
 $ sudo openvpn –config “/etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn” –auth-user-pass “/etc/openvpn/auth.txt”
