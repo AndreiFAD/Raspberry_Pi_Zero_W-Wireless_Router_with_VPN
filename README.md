@@ -19,7 +19,7 @@ Windows: https://www.raspberrypi.org/documentation/installation/installing-image
 $ sudo apt–get update && sudo apt–get upgrade –y<br>
 $ sudo apt–get install hostapd dnsmasq –y<br>
 
-# DHCP Configuration
+## DHCP Configuration
 
 3. Static IP address for wlan1:
 
@@ -42,7 +42,7 @@ Copy this to new file:<br>
 interface=wlan1<br>
 dhcp–range=192.168.111.1,192.168.111.20,255.255.255.0,24h<br>
 
-# Configuring a Wireless Access Point
+## Configuring a Wireless Access Point
 
 5. Configure hostapd:
 
@@ -107,7 +107,7 @@ network={<br>
         id_str=”work”<br>
 }<br>
 
-# Configuring a VPN Surfshark
+## Configuring a VPN Surfshark
 
 If you sign in with Android or IOS app you can try with 7 days free trial
 
@@ -169,9 +169,9 @@ $ sudo openvpn –config “/etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn” �
 
 And if “Initialization Sequence Completed” you can using and test on https://whatismycountry.com
 
-Raspberry Pi Zero W build with USB WIFI adapter and with USB
+## Raspberry Pi Zero W build with USB WIFI adapter and with USB
 
-References:<br>
+## References:<br>
 https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md<br>
 https://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/<br>
 https://www.raspberrypi.org/documentation/configuration/tcpip/README.md<br>
