@@ -1,7 +1,7 @@
 # Raspberry_Pi_Zero_W-Wireless_Router_with_VPN
 Raspberry Pi Zero W – Wireless Router with VPN
 
-Prerequisites:
+## Prerequisites:
 - Raspberry Pi Zero W (link) 
 - USB WiFi adapter (link) 
 - One old USB cable 
@@ -9,19 +9,19 @@ Prerequisites:
 - Raspberry Pi Zero Case (link) 
 - Raspbian Buster with desktop (link)
 
-1. Copy the rasbian image to sd card:
+### 1. Copy the rasbian image to sd card:
 
 Mac: https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 Windows: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
-2. Install packages:
+### 2. Install packages:
 
 $ sudo apt–get update && sudo apt–get upgrade –y<br>
 $ sudo apt–get install hostapd dnsmasq –y<br>
 
 ## DHCP Configuration
 
-3. Static IP address for wlan1:
+### 3. Static IP address for wlan1:
 
 $ sudo nano /etc/dhcpcd.conf<br>
 Copy at the end of the file:<br>
@@ -30,7 +30,7 @@ static ip_address=192.168.111.254/24<br>
 nohook wpa_supplicant<br>
 denyinterfaces wlan1<br>
 
-4. IP range for wlan1:
+### 4. IP range for wlan1:
 
 Create a backup file:<br>
 $ sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.default<br>
@@ -44,7 +44,7 @@ dhcp–range=192.168.111.1,192.168.111.20,255.255.255.0,24h<br>
 
 ## Configuring a Wireless Access Point
 
-5. Configure hostapd:
+### 5. Configure hostapd:
 
 $ sudo nano /etc/hostapd/hostapd.conf<br>
 Copy this to the file:<br>
@@ -72,7 +72,7 @@ $ sudo systemctl unmask hostapd.service<br>
 $ sudo systemctl enable hostapd.service<br>
 $ sudo systemctl start hostapd.service<br>
 
-6. Enabling traffic forwarding and forwarding rule configuration:
+### 6. Enabling traffic forwarding and forwarding rule configuration:
 
 $ sudo nano /etc/sysctl.conf<br>
 Uncomment this line:<br>
@@ -87,7 +87,7 @@ $ sudo nano /etc/rc.local<br>
 Add this line above “exit 0”:<br>
 iptables–restore < /etc/iptables.ipv4.nat<br>
 
-7. Set wifi network for wlan0:
+### 7. Set wifi network for wlan0:
 
 $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
@@ -111,7 +111,7 @@ network={<br>
 
 If you sign in with Android or IOS app you can try with 7 days free trial
 
-8. After registration (!) login to website:
+### 8. After registration (!) login to website:
 
 https://account.surfshark.com/login
 
@@ -123,7 +123,7 @@ at the bottom of the page:<br>
 Get service credentials<br>
 These login details are only valid for manual setup: Username and Password<br>
 
-9. How to set up OpenVPN using Linux Terminal:<br>
+### 9. How to set up OpenVPN using Linux Terminal:<br>
 (it is from here https://support.surfshark.com/hc/en-us/articles/360011051133-How-to-set-up-OpenVPN-using-Linux-Terminal)
 
 Install the necessary packages by entering the command:<br>
@@ -145,7 +145,7 @@ $ sudo openvpn [file name]<br>
 $ sudo openvpn us-dal.prod.surfshark.com_udp.ovpn<br>
 $ sudo openvpn /etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn<br>
 
-10. Enabling traffic forwarding and forwarding rule configuration with VPN:
+### 10. Enabling traffic forwarding and forwarding rule configuration with VPN:
 
 $ sudo nano /etc/sysctl.conf<br>
 Uncomment this line:<br>
