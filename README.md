@@ -65,7 +65,7 @@ Copy this to the file:<br>
 
 $ sudo nano /etc/default/hostapd<br>
 change this line:<br>
-`DAEMON_CONF=“”` to `DAEMON_CONF=“/etc/hostapd/hostapd.conf”`<br>
+`DAEMON_CONF=""` to `DAEMON_CONF="/etc/hostapd/hostapd.conf"`<br>
 
 Enable and start hostapd:<br>
 $ sudo systemctl unmask hostapd.service<br>
@@ -81,10 +81,10 @@ Uncomment this line:<br>
 $ sudo iptables –t nat –A POSTROUTING –o wlan0 –j MASQUERADE<br>
 $ sudo iptables –A FORWARD –m conntrack —ctstate RELATED,ESTABLISHED –j ACCEPT<br>
 $ sudo iptables –A FORWARD –i wlan1 –o wlan0 –j ACCEPT<br>
-$ sudo sh –c “iptables-save > /etc/iptables.ipv4.nat”<br>
+$ sudo sh –c "iptables-save > /etc/iptables.ipv4.nat"<br>
 $ sudo nano /etc/rc.local<br>
 
-Add this line above “exit 0”:<br>
+Add this line above "exit 0":<br>
 `iptables–restore < /etc/iptables.ipv4.nat`<br>
 
 ### 7. Set wifi network for wlan0:
@@ -96,15 +96,15 @@ Copy this to the file:<br>
 `update_config=1`<br>
 `country=HU #set your country `<br>
 `network={`<br>
-`        ssid=”home_wifi”`<br>
-`        psk=”passwd”`<br>
-`        id_str=”home”`<br>
+&#09;`ssid="home_wifi"`<br>
+&#09;`psk="passwd"`<br>
+&#09;`id_str="home"`<br>
 `}`<br>
 `network={`<br>
-`        ssid=”work_wifi”`<br>
-`        scan_ssid=1  #if SSID is hidden`<br>
-`        psk=”passwd”`<br>
-`        id_str=”work”`<br>
+&#09;`ssid="work_wifi"`<br>
+&#09;`scan_ssid=1  #if SSID is hidden`<br>
+&#09;`psk="passwd"`<br>
+&#09;`id_str="work"`<br>
 `}`<br>
 
 ## Configuring a VPN Surfshark
@@ -154,8 +154,8 @@ Uncomment this line:<br>
 $ sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE<br>
 $ sudo iptables -A FORWARD -i wlan1 -o tun0 -j ACCEPT<br>
 $ sudo iptables -A FORWARD -i tun0 -o wlan1 -m state –state RELATED,ESTABLISHED -j ACCEPT<br>
-$ sudo sh -c “iptables-save > /etc/iptables.restore” <br>
-$ echo “up iptables-restore < /etc/iptables.restore” | sudo tee –append /etc/network/interfaces<br>
+$ sudo sh -c "iptables-save > /etc/iptables.restore" <br>
+$ echo "up iptables-restore < /etc/iptables.restore" | sudo tee –append /etc/network/interfaces<br>
 
 Create file for authentication:<br>
 $ sudo nano /etc/openvpn/auth.txt
@@ -165,9 +165,9 @@ Add username and password:<br>
 `passsdsaddsas`
 
 Run OpenVPN and connect example to USA:<br>
-$ sudo openvpn –config “/etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn” –auth-user-pass “/etc/openvpn/auth.txt”
+$ sudo openvpn –config "/etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn" –auth-user-pass "/etc/openvpn/auth.txt"
 
-And if “Initialization Sequence Completed” you can using and test on https://whatismycountry.com
+And if "Initialization Sequence Completed" you can using and test on https://whatismycountry.com
 
 ## Raspberry Pi Zero W build with USB WIFI adapter and with USB
 
