@@ -2,12 +2,12 @@
 Raspberry Pi Zero W – Wireless Router with VPN
 
 ## Prerequisites:
-- Raspberry Pi Zero W (link) 
-- USB WiFi adapter (link) 
+- Raspberry Pi Zero W (https://thepihut.com/products/raspberry-pi-zero-w?variant=30333236753) 
+- USB WiFi adapter (https://www.amazon.com/EDUP-EP-N8508GS-150Mbps-802-11n-Wireless/dp/B01EL3YBI8) 
 - One old USB cable 
 - Micro sd card class 10 (I used 8 GB SanDisk ultra) 
-- Raspberry Pi Zero Case (link) 
-- Raspbian Buster with desktop (link)
+- Raspberry Pi Zero Case (https://www.amazon.co.uk/Raspberry-Pi-Zero-Zebra-Black/dp/B01G274S02) 
+- Raspbian Buster with desktop (https://www.raspberrypi.org/downloads/raspbian/)
 
 ### 1. Copy the rasbian image to sd card:
 
