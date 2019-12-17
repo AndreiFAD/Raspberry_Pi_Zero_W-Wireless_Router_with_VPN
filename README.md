@@ -96,15 +96,15 @@ Copy this to the file:<br>
 `update_config=1`<br>
 `country=HU #set your country `<br>
 `network={`<br>
-&#09;`ssid="home_wifi"`<br>
-&#09;`psk="passwd"`<br>
-&#09;`id_str="home"`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`ssid="home_wifi"`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`psk="passwd"`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`id_str="home"`<br>
 `}`<br>
 `network={`<br>
-&#09;`ssid="work_wifi"`<br>
-&#09;`scan_ssid=1  #if SSID is hidden`<br>
-&#09;`psk="passwd"`<br>
-&#09;`id_str="work"`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`ssid="work_wifi"`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`scan_ssid=1  #if SSID is hidden`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`psk="passwd"`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`id_str="work"`<br>
 `}`<br>
 
 ## Configuring a VPN Surfshark
