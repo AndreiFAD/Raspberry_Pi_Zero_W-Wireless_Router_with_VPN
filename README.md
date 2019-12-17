@@ -170,7 +170,11 @@ $ sudo openvpn –config "/etc/openvpn/us-dal.prod.surfshark.com_udp.ovpn" –au
 And if "Initialization Sequence Completed" you can using and test on https://whatismycountry.com
 
 ## Raspberry Pi Zero W build with USB WIFI adapter and with USB
-
+<img width="854" alt="credentials" src="https://user-images.githubusercontent.com/24839474/70960811-5d36da00-2080-11ea-88de-591cb51c550a.png">
+<img width="854" alt="credentials" src="https://user-images.githubusercontent.com/24839474/70960812-5d36da00-2080-11ea-81d0-f59255e182c1.jpeg">
+<img width="854" alt="credentials" src="https://user-images.githubusercontent.com/24839474/70960813-5d36da00-2080-11ea-96aa-43ff03eaa9c0.jpeg">
+<img width="854" alt="credentials" src="https://user-images.githubusercontent.com/24839474/70960814-5d36da00-2080-11ea-9120-0d5006282d40.jpeg">
+<img width="854" alt="credentials" src="https://user-images.githubusercontent.com/24839474/70960815-5d36da00-2080-11ea-8abb-c1d94e343bf2.jpeg">
 ## References:<br>
 https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md<br>
 https://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/<br>
